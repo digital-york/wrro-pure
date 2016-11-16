@@ -3,6 +3,8 @@
 	xmlns:v3="http://www.loc.gov/mods/v3"
 	xmlns:xlin="http://www.w3.org/1999/xlink"
 	exclude-result-prefixes="v3">
+	
+	<!-- 2016-11-16 -->
 
 	<xsl:output indent="yes" method="xml"/>
 	<xsl:template match="text()"></xsl:template>
@@ -37,17 +39,48 @@
 					<xsl:when test="v3:note[@type='publicationStatus']='inprep'">
 						<ispublished>inprep</ispublished>
 					</xsl:when>
+					<xsl:when test="v3:note[@type='publicationStatus']='submitted'">
+						<ispublished>submitted</ispublished>
+					</xsl:when>
+					<xsl:when test="v3:note[@type='publicationStatus']='epub_ahead_of_print'">
+						<ispublished>published_online</ispublished>
+					</xsl:when>
 					<xsl:otherwise>
 						<ispublished>pub</ispublished>
 					</xsl:otherwise>
 				</xsl:choose>
-				<date_type>published</date_type>
+				<!-- <date_type>published</date_type> -->
 				<source>pure</source>
 				<title>
 					<xsl:value-of select="v3:titleInfo/v3:title" />
 					<xsl:if test="v3:titleInfo/v3:subTitle"><xsl:text> : </xsl:text><xsl:value-of select="v3:titleInfo/v3:subTitle"/></xsl:if>
 				</title>
-				<date><xsl:value-of select="v3:originInfo/v3:dateIssued" /></date>
+				<!--<dates>
+					<item>-->
+						<date><xsl:value-of select="v3:originInfo/v3:dateIssued" /></date>
+						<xsl:choose>
+							<xsl:when test="v3:note[@type='publicationStatus']='published'">
+								<date_type>published</date_type>
+							</xsl:when>
+							<xsl:when test="v3:note[@type='publicationStatus']='inpress'">
+								<date_type>accepted</date_type>
+							</xsl:when>
+							<xsl:when test="v3:note[@type='publicationStatus']='unpublished'">
+								<date_type>unpublished</date_type>
+							</xsl:when>
+							<xsl:when test="v3:note[@type='publicationStatus']='submitted'">
+								<date_type>submitted</date_type>
+							</xsl:when>							
+							<xsl:when test="v3:note[@type='publicationStatus']='inprep'">
+								<date_type>inprep</date_type>
+							</xsl:when>
+							<xsl:when test="v3:note[@type='publicationStatus']='epub_ahead_of_print'">
+								<date_type>published_online</date_type>
+							</xsl:when>
+						</xsl:choose>
+				<!--	</item>
+				</dates>-->
+				<!-- <date><xsl:value-of select="v3:originInfo/v3:dateIssued" /></date> -->
 				<xsl:if test="v3:name[@type='personal']/v3:role/v3:roleTerm[@authority='pure/email']">
 					<contact_email><xsl:value-of select="v3:name[@type='personal']/v3:role/v3:roleTerm[@authority='pure/email']" /></contact_email>
 				</xsl:if>
@@ -196,7 +229,10 @@
 		<pureid><xsl:value-of select="substring-after(text(), 'PURE: ')" /></pureid>
 	</xsl:template>
 
-	<xsl:template match="v3:identifier[@type='isbn' and local-name(..)='mods']">
+	<!-- <xsl:template match="v3:identifier[@type='isbn' and local-name(..)='mods']">
+		<isbn><xsl:value-of select="." /></isbn>
+	</xsl:template> -->
+	<xsl:template match="v3:identifier[@type='isbn' and local-name(..)='mods'][0]">
 		<isbn><xsl:value-of select="." /></isbn>
 	</xsl:template>
 	
@@ -432,7 +468,11 @@
 		<xsl:if test="../v3:relatedItem[@type='host']/v3:titleInfo/v3:title">
 			<publication>
 				<xsl:value-of select="../v3:relatedItem[@type='host']/v3:titleInfo/v3:title" />
-				<xsl:if test="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle"><xsl:text> : </xsl:text><xsl:value-of select="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle"/></xsl:if>
+				<xsl:if test="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle">
+					<xsl:if test="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle">
+						<xsl:text> : </xsl:text><xsl:value-of select="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle"/>
+					</xsl:if>
+				</xsl:if>
 			</publication>
 		</xsl:if>
 	</xsl:template>
