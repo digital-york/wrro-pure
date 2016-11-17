@@ -79,7 +79,7 @@
 							</xsl:when>
 						</xsl:choose>
 				<!--	</item>
-				</dates>-->
+				</dates> -->
 				<!-- <date><xsl:value-of select="v3:originInfo/v3:dateIssued" /></date> -->
 				<xsl:if test="v3:name[@type='personal']/v3:role/v3:roleTerm[@authority='pure/email']">
 					<contact_email><xsl:value-of select="v3:name[@type='personal']/v3:role/v3:roleTerm[@authority='pure/email']" /></contact_email>
