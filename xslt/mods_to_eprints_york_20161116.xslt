@@ -3,7 +3,7 @@
 	xmlns:v3="http://www.loc.gov/mods/v3" xmlns:xlin="http://www.w3.org/1999/xlink"
 	exclude-result-prefixes="v3">
 
-	<!-- 2016-11-16 -->
+	<!-- 2016-11-18 -->
 
 	<xsl:output indent="yes" method="xml"/>
 	<xsl:template match="text()"/>
@@ -56,8 +56,10 @@
 				<title>
 					<xsl:value-of select="v3:titleInfo/v3:title"/>
 					<xsl:if test="v3:titleInfo/v3:subTitle">
-						<xsl:text> : </xsl:text>
-						<xsl:value-of select="v3:titleInfo/v3:subTitle"/>
+						<xsl:if test="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle != ''">
+							<xsl:text> : </xsl:text>
+							<xsl:value-of select="v3:titleInfo/v3:subTitle"/>
+						</xsl:if>
 					</xsl:if>
 				</title>
 				<date>
@@ -576,9 +578,10 @@
 				<xsl:value-of select="../v3:relatedItem[@type='host']/v3:titleInfo/v3:title"/>
 				<xsl:if test="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle">
 					<xsl:if test="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle">
-						<xsl:text> : </xsl:text>
-						<xsl:value-of
-							select="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle"/>
+						<xsl:if test="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle != ''">
+							<xsl:text> : </xsl:text>							
+							<xsl:value-of select="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle"/>
+						</xsl:if>
 					</xsl:if>
 				</xsl:if>
 			</publication>
