@@ -66,20 +66,15 @@
 					<xsl:value-of select="v3:originInfo/v3:dateIssued"/>
 				</date>
 				<xsl:choose>
+					<!-- NB not setting a date_type for unpublished or in_prep. -->
 					<xsl:when test="v3:note[@type='publicationStatus']='published'">
 						<date_type>published</date_type>
 					</xsl:when>
 					<xsl:when test="v3:note[@type='publicationStatus']='inpress'">
 						<date_type>accepted</date_type>
 					</xsl:when>
-					<xsl:when test="v3:note[@type='publicationStatus']='unpublished'">
-						<date_type>unpublished</date_type>
-					</xsl:when>
 					<xsl:when test="v3:note[@type='publicationStatus']='submitted'">
 						<date_type>submitted</date_type>
-					</xsl:when>
-					<xsl:when test="v3:note[@type='publicationStatus']='inprep'">
-						<date_type>inprep</date_type>
 					</xsl:when>
 					<xsl:when test="v3:note[@type='publicationStatus']='epub_ahead_of_print'">
 						<date_type>published_online</date_type>
