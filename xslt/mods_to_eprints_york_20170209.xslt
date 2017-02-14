@@ -21,7 +21,7 @@
           </xsl:otherwise> 
         </xsl:choose>  
         <pure_status> 
-          <xsl:value-of select="v3:note[@type='researchoutput workflow state']"/> 
+          <xsl:value-of select="v3:note[@type='publication workflow state']"/> 
         </pure_status>  
         <xsl:choose> 
           <xsl:when test="v3:note[@type='publicationStatus']='published'"> 
@@ -51,8 +51,8 @@
         <title> 
           <xsl:value-of select="v3:titleInfo/v3:title"/>  
           <xsl:if test="v3:titleInfo/v3:subTitle"> 
-            <xsl:if test="../v3:relatedItem[@type='host']/v3:titleInfo/v3:subTitle != ''"> 
-              <xsl:text>:</xsl:text>  
+            <xsl:if test="v3:titleInfo/v3:subTitle != ''"> 
+              <xsl:text> : </xsl:text>  
               <xsl:value-of select="v3:titleInfo/v3:subTitle"/> 
             </xsl:if> 
           </xsl:if> 
