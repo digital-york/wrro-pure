@@ -5,8 +5,8 @@
     Uses variable below which should be updated when Pure starts 
 	using 'https://doi.org/' as the URL stem 
   -->
-  <xsl:variable name="doi-url-stub">doi.org/</xsl:variable>
-	
+  <xsl:variable name="doi-url-stub">http://dx.doi.org/</xsl:variable>
+  
   <xsl:output indent="yes" method="xml"/>  
   <xsl:template match="text()"/>  
   <xsl:template match="v3:mods"> 
@@ -266,12 +266,15 @@
     <official_url> 
       <xsl:value-of select="."/> 
     </official_url>
-    <xsl:if test="substring-after(. ,$doi-url-stub)">
-	  <id_number> 
-        <xsl:value-of select="substring-after(. ,$doi-url-stub)"/> 
-      </id_number>
-	</xsl:if>
-  </xsl:template>
+	<id_number> 
+      <xsl:value-of select="substring-after(. ,$doi-url-stub)"/> 
+    </id_number>
+  </xsl:template>  
+  <xsl:template match="v3:identifier[@type='local' and starts-with(text(), 'PubMed:')]"> 
+    <PMID> 
+      <xsl:value-of select="normalize-space(substring-after(text(), 'PubMed:'))"/> 
+    </PMID> 
+  </xsl:template>  
   <xsl:template match="v3:part[local-name(..)='mods']/v3:detail[@type='volume']/v3:number"> 
     <volume> 
       <xsl:value-of select="."/> 
