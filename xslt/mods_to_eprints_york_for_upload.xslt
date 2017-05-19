@@ -253,6 +253,11 @@
     <pureid> 
       <xsl:value-of select="substring-after(text(), 'PURE: ')"/> 
     </pureid> 
+  </xsl:template>
+  <xsl:template match="v3:identifier[@type='local' and starts-with(text(), 'PubMed:')]"> 
+    <pmid> 
+      <xsl:value-of select="normalize-space(substring-after(text(), 'PubMed:'))"/> 
+    </pmid> 
   </xsl:template>  
   <!-- <xsl:template match="v3:identifier[@type='isbn' and local-name(..)='mods']">
 		<isbn><xsl:value-of select="." /></isbn>
