@@ -251,7 +251,7 @@
   </xsl:template>  
   <xsl:template match="v3:identifier[@type='local' and starts-with(text(), 'PURE:')]"> 
     <pureid> 
-      <xsl:value-of select="substring-after(text(), 'PURE: ')"/> 
+      <xsl:value-of select="normalize-space(substring-after(text(), 'PURE:'))"/> 
     </pureid> 
   </xsl:template>
   <xsl:template match="v3:identifier[@type='local' and starts-with(text(), 'PubMed:')]"> 
