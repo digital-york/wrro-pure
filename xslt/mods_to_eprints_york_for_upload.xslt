@@ -92,9 +92,9 @@
               <item> 
                 <xsl:choose> 
                   <xsl:when test="v3:role/v3:roleTerm[@authority='pure/orcid']"> 
-                    <id> 
+                    <orcid> 
                       <xsl:value-of select="v3:role/v3:roleTerm[@authority='pure/orcid']"/> 
-                    </id> 
+                    </orcid> 
                   </xsl:when>  
                   <xsl:otherwise> 
                     <id> 
@@ -127,9 +127,9 @@
               <item> 
                 <xsl:choose> 
                   <xsl:when test="v3:role/v3:roleTerm[@authority='pure/orcid']"> 
-                    <id> 
+                    <orcid> 
                       <xsl:value-of select="v3:role/v3:roleTerm[@authority='pure/orcid']"/> 
-                    </id> 
+                    </orcid> 
                   </xsl:when>  
                   <xsl:otherwise> 
                     <id> 
@@ -233,7 +233,7 @@
     <issn> 
       <xsl:value-of select="."/> 
     </issn> 
-  </xsl:template>  
+  </xsl:template>
   <xsl:template match="v3:originInfo/v3:place/v3:placeTerm"> 
     <place_of_pub> 
       <xsl:value-of select="."/> 
