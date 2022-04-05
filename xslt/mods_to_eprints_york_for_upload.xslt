@@ -62,24 +62,16 @@
             </xsl:if> 
           </xsl:if> 
         </title>  
-        <date> 
-          <xsl:value-of select="v3:originInfo/v3:dateIssued"/> 
-        </date>  
-        <xsl:choose> 
-          <!-- NB not setting a date_type for unpublished or in_prep. -->  
-          <xsl:when test="v3:note[@type='publicationStatus']='published'"> 
-            <date_type>published</date_type> 
-          </xsl:when>  
-          <xsl:when test="v3:note[@type='publicationStatus']='inpress'"> 
-            <date_type>accepted</date_type> 
-          </xsl:when>  
-          <xsl:when test="v3:note[@type='publicationStatus']='submitted'"> 
-            <date_type>submitted</date_type> 
-          </xsl:when>  
-          <xsl:when test="v3:note[@type='publicationStatus']='epub_ahead_of_print'"> 
-            <date_type>published_online</date_type> 
-          </xsl:when> 
-        </xsl:choose>  
+	<xsl:if test="v3:originInfo/v3:dateOther">
+          <dates>
+            <xsl:for-each select="v3:originInfo/v3:dateOther">
+              <xsl:call-template name="dates"> 
+                <xsl:with-param name="dateOther" select="."/> 
+              </xsl:call-template> 
+            </xsl:for-each>
+          </dates>
+        </xsl:if>
+
         <xsl:if test="v3:name[@type='personal']/v3:role/v3:roleTerm[@authority='pure/email']"> 
           <contact_email> 
             <xsl:value-of select="v3:name[@type='personal']/v3:role/v3:roleTerm[@authority='pure/email']"/> 
@@ -673,4 +665,33 @@
     <xsl:param name="uri"/>  
     <xsl:value-of select="translate($uri, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/> 
   </xsl:template> 
+
+  <!-- Dates / types compund field -->
+  <xsl:template name="dates"> 
+    <xsl:param name="dateOther"/>  
+    <xsl:choose> 
+      <xsl:when test="$dateOther/@type='inprep' or $dateOther/@type='unpublished'">
+        <!-- not mapped -->
+      </xsl:when>  
+      <xsl:when test="$dateOther/@type='inpress'">
+        <item>
+          <date_type>accepted</date_type>
+          <date><xsl:value-of select="$dateOther"/></date>
+        </item>
+      </xsl:when>  
+      <xsl:when test="$dateOther/@type='epub'">
+        <item>
+          <date_type>published_online</date_type>
+          <date><xsl:value-of select="$dateOther"/></date>
+        </item>
+      </xsl:when>  
+      <xsl:otherwise> 
+        <item>
+          <date_type><xsl:value-of select="$dateOther/@type"/></date_type>
+          <date><xsl:value-of select="$dateOther"/></date>
+        </item>
+      </xsl:otherwise> 
+    </xsl:choose>  
+  </xsl:template>  
+
 </xsl:stylesheet>
