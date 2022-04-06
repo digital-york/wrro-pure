@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:v3="http://www.loc.gov/mods/v3" xmlns:xlin="http://www.w3.org/1999/xlink" version="1.0" exclude-result-prefixes="v3">  
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:v3="http://www.loc.gov/mods/v3" xmlns:xlin="http://www.w3.org/1999/xlink" xmlns:riox="http://docs.rioxx.net/schema/v1.0/rioxxterms/" version="1.0" exclude-result-prefixes="v3">  
   <!-- 2017-05-15: Add mapping of DOI to id_number field. 
     Uses variable below which should be updated when Pure starts 
 	using 'https://doi.org/' as the URL stem 
@@ -495,6 +495,19 @@
       </xsl:otherwise> 
     </xsl:choose> 
   </xsl:template>  
+
+  <xsl:template match="v3:extension"> 
+    <funder_grant>
+      <xsl:apply-templates/> 
+    </funder_grant>
+  </xsl:template>  
+  <xsl:template match="riox:funder"> 
+    <item>
+      <funding_body><xsl:value-of select="."/></funding_body> 
+      <grant_number><xsl:value-of select="following-sibling::*"/></grant_number>
+    </item>
+  </xsl:template>  
+
   <xsl:template name="journalMatch"> 
     <xsl:if test="../v3:relatedItem[@type='host']/v3:titleInfo/v3:title"> 
       <publication> 
