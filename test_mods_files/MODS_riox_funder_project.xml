@@ -91,11 +91,11 @@
   </mods:relatedItem>
   <mods:note type="publicationStatus">unpublished</mods:note>
   <mods:extension>
-    <riox:funder>NATURAL ENVIRONMENT RESEARCH COUNCIL</riox:funder>
+    <riox:funder>FUNDER - with projectid</riox:funder>
+    <riox:projectid>PROJECTID - with funder</riox:projectid>
+    <riox:funder>FUNDER - no projectid</riox:funder>
     <riox:projectid></riox:projectid>
-    <riox:funder>NATURAL ENVIRONMENT RESEARCH COUNCIL</riox:funder>
-    <riox:projectid>NERC:JS/12345/AG</riox:projectid>
-    <riox:funder>ESPRC</riox:funder>
-    <riox:projectid>ESPRC:JS/98765/AG</riox:projectid>
+    <riox:funder></riox:funder>
+    <riox:projectid>PROJECTID - with no funder</riox:projectid>
   </mods:extension>
 </mods:mods>
