@@ -296,7 +296,7 @@
         <keywords> 
           <xsl:for-each select="v3:topic"> 
             <xsl:if test="position() != 1"> 
-              <xsl:text>,</xsl:text> 
+              <xsl:text>, </xsl:text> 
             </xsl:if>  
             <xsl:value-of select="."/> 
           </xsl:for-each> 
