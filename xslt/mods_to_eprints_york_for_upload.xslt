@@ -306,7 +306,13 @@
       </url>  
       <type/> 
     </item> 
-  </xsl:template>  
+  </xsl:template>
+  <!-- add rights statement to coversheet -->
+  <xsl:template match="v3:note[@type='rights statement']"> 
+    <coversheet_statement> 
+      <xsl:value-of select="."/> 
+    </coversheet_statement>
+  </xsl:template>
   <xsl:template match="v3:note"> 
     <xsl:choose> 
       <xsl:when test="@type != ''"/>  
