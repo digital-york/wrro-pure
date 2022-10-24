@@ -286,7 +286,8 @@
       <!-- We only want non-qualified topics -->  
       <xsl:otherwise> 
         <keywords> 
-          <xsl:for-each select="v3:topic"> 
+          <!-- don't include topics that belong to a known classification scheme -->
+          <xsl:for-each select="v3:topic[not(.=//v3:classification/@displayLabel)]"> 
             <xsl:if test="position() != 1"> 
               <xsl:text>, </xsl:text> 
             </xsl:if>  
