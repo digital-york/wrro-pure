@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:v3="http://www.loc.gov/mods/v3" xmlns:xlin="http://www.w3.org/1999/xlink" xmlns:riox="http://docs.rioxx.net/schema/v1.0/rioxxterms/" version="1.0" exclude-result-prefixes="v3">  
-  <!-- 2017-05-15: Add mapping of DOI to id_number field. 
-    Uses variable below which should be updated when Pure starts 
+  <!--
+    2022-10-25: Various improvements - see closed issues on https://github.com/digital-york/wrro-pure/ 
+    2017-05-15: Add mapping of DOI to id_number field. 
+      Uses variable below which should be updated when Pure starts 
 	using 'https://doi.org/' as the URL stem 
   -->
   <xsl:variable name="doi-url-stub">doi.org/</xsl:variable>
