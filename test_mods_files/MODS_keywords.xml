@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <mods:recordInfo>
+    <mods:recordContentSource>local</mods:recordContentSource>
+  </mods:recordInfo>
+  <mods:identifier type="local">PURE: 71307881</mods:identifier>
+  <mods:identifier type="local">PURE UUID: a50a1f4b-454b-4bc3-b2ff-8d50f7027f49</mods:identifier>
+  <mods:relatedItem type="host" xlink:role="">
+    <mods:part>
+      <mods:text>Salter , J 2021 ' JS Test Preprint : with subtitle ' Experiments in Pure , no. 2 , vol. 1 , arXiv , arXiv , pp. 100-110 .</mods:text>
+    </mods:part>
+  </mods:relatedItem>
+  <mods:physicalDescription>
+    <mods:extent>10</mods:extent>
+  </mods:physicalDescription>
+  <mods:note>Preprint test</mods:note>
+  <mods:titleInfo lang="eng">
+    <mods:title>JS Test Preprint</mods:title>
+    <mods:subTitle>with subtitle</mods:subTitle>
+  </mods:titleInfo>
+  <mods:name type="personal">
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/role">author</mods:roleTerm>
+    </mods:role>
+    <mods:namePart type="given">John</mods:namePart>
+    <mods:namePart type="family">Salter</mods:namePart>
+  </mods:name>
+  <mods:genre authority="dct" type="publicationType">/dk/atira/pure/researchoutput/researchoutputtypes/workingpaper/preprint</mods:genre>
+  <mods:note type="version identification" displayLabel="_X100_Scammonden.gpx" ID="file_72642439">authorsversion</mods:note>
+  <mods:note type="rights statement" displayLabel="_X100_Scammonden.gpx" ID="file_72642439">test rights statement</mods:note>
+  <mods:note type="license" displayLabel="_X100_Scammonden.gpx" ID="file_72642439">cc_wr_test_v4</mods:note>
+  <mods:note type="document visibility" displayLabel="_X100_Scammonden.gpx" ID="file_72642439">FREE</mods:note>
+  <mods:note type="document embargodate" displayLabel="_X100_Scammonden.gpx" ID="file_72642439">2022-06-30</mods:note>
+  <mods:note type="publication category">Research</mods:note>
+  <mods:note type="publication workflow state">approved</mods:note>
+  <mods:originInfo>
+    <mods:dateIssued encoding="w3cdtf">2021-11-01</mods:dateIssued>
+    <mods:dateValid encoding="w3cdtf">2022-06-30</mods:dateValid>
+    <mods:dateOther type="published" encoding="w3cdtf">2021-11-01</mods:dateOther>
+    <mods:place>
+      <mods:placeTerm>arXiv</mods:placeTerm>
+    </mods:place>
+    <mods:publisher>arXiv</mods:publisher>
+  </mods:originInfo>
+  <mods:subject>
+    <mods:topic>KW1</mods:topic>
+    <mods:topic>KW2</mods:topic>
+    <mods:topic>KW3</mods:topic>
+    <mods:topic>AI Indexes (General)</mods:topic>
+    <mods:topic>Computer Science</mods:topic>
+    <mods:topic>Creativity</mods:topic>
+    <mods:topic>SDG 4 - Quality Education</mods:topic>
+  </mods:subject>
+  <mods:classification displayLabel="AI Indexes (General)" authority="pure/librarianKeywordContainers">/dk/atira/pure/core/keywords/A/AI</mods:classification>
+  <mods:classification displayLabel="Computer Science" authority="pure/ASJCSubjectAreas">/dk/atira/pure/subjectarea/asjc/1700</mods:classification>
+  <mods:classification displayLabel="Creativity" authority="pure/Research themes">Research themes/creativity</mods:classification>
+  <mods:classification displayLabel="SDG 4 - Quality Education" authority="pure/sustainabledevelopmentgoals">/dk/atira/pure/sustainabledevelopmentgoals/quality_education</mods:classification>
+  <mods:language>
+    <mods:languageTerm type="code" authority="iso639-2b">eng</mods:languageTerm>
+  </mods:language>
+  <mods:abstract lang="eng" type="content">Abstract</mods:abstract>
+  <mods:accessCondition type="info:eu-repo/semantics/openAccess"></mods:accessCondition>
+  <mods:note type="metadata visibility">FREE</mods:note>
+  <mods:note type="creatorCount">1</mods:note>
+  <mods:relatedItem type="host" xlink:role="">
+    <mods:part>
+      <mods:detail type="citation">
+        <mods:caption>100-110</mods:caption>
+      </mods:detail>
+    </mods:part>
+  </mods:relatedItem>
+  <mods:relatedItem type="series" xlink:role="">
+    <mods:titleInfo>
+      <mods:title>Experiments in Pure</mods:title>
+    </mods:titleInfo>
+    <mods:originInfo>
+      <mods:publisher>PubName</mods:publisher>
+    </mods:originInfo>
+    <mods:identifier type="issn">1111-2222</mods:identifier>
+    <mods:identifier type="issn">3333-4444</mods:identifier>
+    <mods:part>
+      <mods:detail type="issue">
+        <mods:number>2</mods:number>
+        <mods:caption>no.</mods:caption>
+      </mods:detail>
+      <mods:detail type="volume">
+        <mods:number>1</mods:number>
+        <mods:caption>vol.</mods:caption>
+      </mods:detail>
+    </mods:part>
+  </mods:relatedItem>
+  <mods:note type="publicationStatus">published</mods:note>
+</mods:mods>
