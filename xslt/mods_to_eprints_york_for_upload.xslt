@@ -466,10 +466,17 @@
       </xsl:when>  
       <!-- Working Paper -->  
       <xsl:when test="starts-with(text(), '/dk/atira/pure/researchoutput/researchoutputtypes/workingpaper/')"> 
-        <type>monograph</type>  
-        <xsl:call-template name="monographType"> 
-          <xsl:with-param name="uriToken" select="$typeToken"/> 
-        </xsl:call-template> 
+        <xsl:choose>
+          <xsl:when test="$typeToken='preprint'">
+            <type>preprint</type>  
+          </xsl:when>
+          <xsl:otherwise>
+            <type>monograph</type>  
+            <xsl:call-template name="monographType"> 
+              <xsl:with-param name="uriToken" select="$typeToken"/> 
+            </xsl:call-template> 
+          </xsl:otherwise>        
+        </xsl:choose>
       </xsl:when>  
       <!-- Thesis -->  
       <xsl:when test="starts-with(text(), '/dk/atira/pure/researchoutput/researchoutputtypes/thesis/')"> 
