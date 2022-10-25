@@ -35,33 +35,33 @@
       <mods:roleTerm type="text" authority="pure/role">author</mods:roleTerm>
     </mods:role>
     <mods:role>
-      <mods:roleTerm type="text" authority="pure/employeeId">18672</mods:roleTerm>
+      <mods:roleTerm type="text" authority="pure/employeeId">123456</mods:roleTerm>
     </mods:role>
     <mods:role>
       <mods:roleTerm type="text" authority="pure/orcid">0000-0002-9024-189X</mods:roleTerm>
     </mods:role>
     <mods:role>
-      <mods:roleTerm type="text" authority="pure/username">hh508</mods:roleTerm>
+      <mods:roleTerm type="text" authority="pure/username">abc123</mods:roleTerm>
     </mods:role>
     <mods:role>
-      <mods:roleTerm type="text" authority="pure/useremail">hh508@york.ac.uk</mods:roleTerm>
+      <mods:roleTerm type="text" authority="pure/useremail">no-reply@york.ac.uk</mods:roleTerm>
     </mods:role>
     <mods:role>
-      <mods:roleTerm type="text" authority="pure/personName">Hills, Helen</mods:roleTerm>
+      <mods:roleTerm type="text" authority="pure/personName">Family, Given</mods:roleTerm>
     </mods:role>
-    <mods:namePart type="given">Helen</mods:namePart>
-    <mods:namePart type="family">Hills</mods:namePart>
+    <mods:namePart type="given">Given</mods:namePart>
+    <mods:namePart type="family">Family</mods:namePart>
     <mods:affiliation>History of Art</mods:affiliation>
     <mods:role>
-      <mods:roleTerm type="text" authority="pure/email">helen.hills@york.ac.uk</mods:roleTerm>
-    </mods:role>
-    <mods:affiliation>History of Art</mods:affiliation>
-    <mods:role>
-      <mods:roleTerm type="text" authority="pure/email">helen.hills@york.ac.uk</mods:roleTerm>
+      <mods:roleTerm type="text" authority="pure/email">no-reply@york.ac.uk</mods:roleTerm>
     </mods:role>
     <mods:affiliation>History of Art</mods:affiliation>
     <mods:role>
-      <mods:roleTerm type="text" authority="pure/email">hh508@york.ac.uk</mods:roleTerm>
+      <mods:roleTerm type="text" authority="pure/email">no-reply@york.ac.uk</mods:roleTerm>
+    </mods:role>
+    <mods:affiliation>History of Art</mods:affiliation>
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/email">no-reply@york.ac.uk</mods:roleTerm>
     </mods:role>
   </mods:name>
   <mods:name ID="1533" type="corporate" lang="eng" authority="local">
