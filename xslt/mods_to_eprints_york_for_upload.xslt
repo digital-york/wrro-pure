@@ -2,7 +2,8 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:v3="http://www.loc.gov/mods/v3" xmlns:xlin="http://www.w3.org/1999/xlink" xmlns:riox="http://docs.rioxx.net/schema/v1.0/rioxxterms/" version="1.0" exclude-result-prefixes="v3">  
   <!--
-    2022-10-25: Various improvements - see closed issues on https://github.com/digital-york/wrro-pure/ 
+    2024-05-27 (v1.2.0): Include Sustainable Development Goals; improve peer reviewed mapping
+    2022-10-25 (v1.1.0): Various improvements - see closed issues on https://github.com/digital-york/wrro-pure/ 
     2017-05-15: Add mapping of DOI to id_number field. 
       Uses variable below which should be updated when Pure starts 
 	using 'https://doi.org/' as the URL stem 
@@ -158,8 +159,11 @@
           <xsl:when test="v3:note[@type='peerreview status' and text()='Peer reviewed'] or v3:genre[@type='publicationType'] = '/dk/atira/pure/researchoutput/researchoutputtypes/contributiontobookanthology/peerreviewedchapter'"> 
             <refereed>TRUE</refereed> 
           </xsl:when>  
-          <xsl:otherwise> 
+          <xsl:when test="v3:note[@type='peerreview status' and text()='Non peer reviewed']"> 
             <refereed>FALSE</refereed> 
+          </xsl:when>  
+          <xsl:otherwise> 
+            <!-- No value - unknown peer review status -->
           </xsl:otherwise> 
         </xsl:choose>  
         <!-- SDGs (see: https://github.com/digital-york/wrro-pure/issues/16) -->
