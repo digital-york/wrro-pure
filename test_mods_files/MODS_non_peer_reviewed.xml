@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:riox="http://docs.rioxx.net/schema/v1.0/rioxxterms/" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <mods:recordInfo>
+    <mods:recordContentSource>local</mods:recordContentSource>
+  </mods:recordInfo>
+  <mods:identifier type="local">PURE: 62001843</mods:identifier>
+  <mods:identifier type="local">PURE UUID: a989904d-089a-40fc-8041-33065b7e448c</mods:identifier>
+  <mods:relatedItem type="host" xlink:role="">
+    <mods:part>
+      <mods:text>Evans , M J 2019 , ' Testing connector dates ' , Nature .</mods:text>
+    </mods:part>
+  </mods:relatedItem>
+  <mods:titleInfo lang="eng">
+    <mods:title>Testing connector dates</mods:title>
+  </mods:titleInfo>
+  <mods:name type="personal" authority="local" ID="2d7bd271-d035-4ea7-b3ae-51c71645dcae">
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/role">author</mods:roleTerm>
+    </mods:role>
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/employeeId">123456</mods:roleTerm>
+    </mods:role>
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/username">abc123</mods:roleTerm>
+    </mods:role>
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/useremail">no-reply@york.ac.uk</mods:roleTerm>
+    </mods:role>
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/personName">Cee, Aaa Bee</mods:roleTerm>
+    </mods:role>
+    <mods:namePart type="given">Aaa Bee</mods:namePart>
+    <mods:namePart type="family">Cee</mods:namePart>
+    <mods:affiliation>Library</mods:affiliation>
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/email">no-reply@york.ac.uk</mods:roleTerm>
+    </mods:role>
+    <mods:affiliation>Library</mods:affiliation>
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/email">no-reply@york.ac.uk</mods:roleTerm>
+    </mods:role>
+  </mods:name>
+  <mods:name ID="1662" type="corporate" lang="eng" authority="local">
+    <mods:role>
+      <mods:roleTerm type="code" authority="marcrelator">pbl</mods:roleTerm>
+    </mods:role>
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/organisationId">0001</mods:roleTerm>
+    </mods:role>
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/organisationType">/dk/atira/pure/organisation/organisationtypes/organisation/academicdepartment</mods:roleTerm>
+    </mods:role>
+    <mods:namePart>Library</mods:namePart>
+    <mods:role>
+      <mods:roleTerm type="text" authority="pure/linkidentifier/eprint">York.YOR1</mods:roleTerm>
+    </mods:role>
+  </mods:name>
+  <mods:genre authority="dct" type="publicationType">/dk/atira/pure/researchoutput/researchoutputtypes/contributiontojournal/article</mods:genre>
+  <mods:note type="version identification" displayLabel="fruits.csv" ID="file_62001845">authorsversion</mods:note>
+  <mods:note type="document visibility" displayLabel="fruits.csv" ID="file_62001845">FREE</mods:note>
+  <mods:note type="peerreview status">Non peer reviewed</mods:note>
+  <mods:note type="publication category">Research</mods:note>
+  <mods:note type="publication workflow state">approved</mods:note>
+  <mods:originInfo>
+    <mods:dateIssued encoding="w3cdtf">2019-05-01</mods:dateIssued>
+    <mods:dateOther type="inprep" encoding="w3cdtf">2019-01-01</mods:dateOther>
+    <mods:dateOther type="submitted" encoding="w3cdtf">2019-02-01</mods:dateOther>
+    <mods:dateOther type="inpress" encoding="w3cdtf">2019-03-01</mods:dateOther>
+    <mods:dateOther type="epub" encoding="w3cdtf">2019-04-01</mods:dateOther>
+    <mods:dateOther type="published" encoding="w3cdtf">2019-05-01</mods:dateOther>
+    <mods:dateOther type="unpublished" encoding="w3cdtf">2019-06-01</mods:dateOther>
+  </mods:originInfo>
+  <mods:language>
+    <mods:languageTerm type="code" authority="iso639-2b">eng</mods:languageTerm>
+  </mods:language>
+  <mods:abstract lang="eng" type="content"></mods:abstract>
+  <mods:accessCondition type="info:eu-repo/semantics/restrictedAccess"></mods:accessCondition>
+  <mods:note type="metadata visibility">FREE</mods:note>
+  <mods:note type="creatorCount">1</mods:note>
+  <mods:relatedItem type="host" xlink:role="">
+    <mods:titleInfo>
+      <mods:title>Nature</mods:title>
+    </mods:titleInfo>
+    <mods:identifier type="issn">0028-0836</mods:identifier>
+    <mods:identifier type="issn">1476-4687</mods:identifier>
+    <mods:originInfo>
+      <mods:publisher>Nature Publishing Group</mods:publisher>
+    </mods:originInfo>
+    <mods:part></mods:part>
+  </mods:relatedItem>
+  <mods:note type="publicationStatus">unpublished</mods:note>
+  <mods:extension>
+    <riox:funder></riox:funder>
+    <riox:projectid>FPR123</riox:projectid>
+  </mods:extension>
+</mods:mods>
