@@ -2,14 +2,19 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:v3="http://www.loc.gov/mods/v3" xmlns:xlin="http://www.w3.org/1999/xlink" xmlns:riox="http://docs.rioxx.net/schema/v1.0/rioxxterms/" version="1.0" exclude-result-prefixes="v3">  
   <!--
-    2024-05-27 (v1.2.0): Include Sustainable Development Goals; improve peer reviewed mapping
+    2024-05-28 (v1.2.0):
+     - include Sustainable Development Goals
+     - improve peer reviewed mapping
+     - include data from 'series' host
+     - additional mapping for newer identifier representation
+     - only map 'extent' to pages when it is pages
     2022-10-25 (v1.1.0): Various improvements - see closed issues on https://github.com/digital-york/wrro-pure/ 
     2017-05-15: Add mapping of DOI to id_number field. 
       Uses variable below which should be updated when Pure starts 
-	using 'https://doi.org/' as the URL stem 
+        using 'https://doi.org/' as the URL stem 
   -->
   <xsl:variable name="doi-url-stub">doi.org/</xsl:variable>
-	
+
   <xsl:output indent="yes" method="xml"/>  
   <xsl:template match="text()"/>  
   <xsl:template match="v3:mods"> 
@@ -65,7 +70,7 @@
             </xsl:if> 
           </xsl:if> 
         </title>  
-	<xsl:if test="v3:originInfo/v3:dateOther">
+        <xsl:if test="v3:originInfo/v3:dateOther">
           <dates>
             <xsl:for-each select="v3:originInfo/v3:dateOther">
               <xsl:call-template name="dates"> 
@@ -178,11 +183,12 @@
               <xsl:call-template name="sustainableDevelopmentGoals"> 
                 <xsl:with-param name="uriToken" select="$sdgToken"/> 
               </xsl:call-template>
-	    </xsl:for-each>
+            </xsl:for-each>
           </sd_goals>
         </xsl:if>
         <!-- Structured keywords 
-					 NOTE: This is only good as long as the keyword hierarchy in PURE matches the one in ePrints -->  
+          NOTE: This is only good as long as the keyword hierarchy in PURE matches the one in ePrints
+        -->  
         <xsl:if test="v3:classification"> 
           <subjects> 
             <xsl:for-each select="v3:classification"> 
@@ -208,12 +214,12 @@
       <xsl:value-of select="."/> 
     </abstract> 
   </xsl:template>  
-  <xsl:template match="v3:relatedItem[@type='host']/v3:part/v3:detail[@type='volume']/v3:number"> 
+  <xsl:template match="v3:relatedItem[@type='host' or @type='series']/v3:part/v3:detail[@type='volume']/v3:number"> 
     <series_volume> 
       <xsl:value-of select="."/> 
     </series_volume> 
   </xsl:template>  
-  <xsl:template match="v3:relatedItem[@type='host']/v3:part/v3:detail[@type='issue']/v3:number"> 
+  <xsl:template match="v3:relatedItem[@type='host' or @type='series']/v3:part/v3:detail[@type='issue']/v3:number"> 
     <xsl:choose> 
       <xsl:when test="starts-with(/v3:mods/v3:genre[@type='publicationType'], '/dk/atira/pure/researchoutput/researchoutputtypes/bookanthology/') or starts-with(/v3:mods/v3:genre[@type='publicationType'], '/dk/atira/pure/researchoutput/researchoutputtypes/contributiontobookanthology/')"> 
         <edition> 
@@ -262,6 +268,7 @@
       <xsl:value-of select="."/> 
     </series> 
   </xsl:template>  
+  <!-- older MODS style -->
   <xsl:template match="v3:identifier[@type='local' and starts-with(text(), 'PURE:')]"> 
     <pureid> 
       <xsl:value-of select="normalize-space(substring-after(text(), 'PURE:'))"/> 
@@ -272,9 +279,22 @@
       <xsl:value-of select="normalize-space(substring-after(text(), 'PubMed:'))"/> 
     </pmid> 
   </xsl:template>  
-  <!-- <xsl:template match="v3:identifier[@type='isbn' and local-name(..)='mods']">
-		<isbn><xsl:value-of select="." /></isbn>
-	</xsl:template> -->  
+  <!-- Newer (5.28.3?) MODS style -->
+  <xsl:template match="v3:identifier[@type='pure/id']"> 
+    <pureid> 
+      <xsl:value-of select="."/> 
+    </pureid> 
+  </xsl:template>
+  <xsl:template match="v3:identifier[@type='pmid']"> 
+    <pmid> 
+      <xsl:value-of select="."/> 
+    </pmid> 
+  </xsl:template>  
+  <!--
+    <xsl:template match="v3:identifier[@type='isbn' and local-name(..)='mods']">
+      <isbn><xsl:value-of select="." /></isbn>
+    </xsl:template> 
+  -->  
   <xsl:template match="v3:identifier[@type='isbn' and local-name(..)='mods'][0]"> 
     <isbn> 
       <xsl:value-of select="."/> 
@@ -285,10 +305,10 @@
       <xsl:value-of select="."/> 
     </official_url>
     <xsl:if test="substring-after(. ,$doi-url-stub)">
-	  <id_number> 
+      <id_number> 
         <xsl:value-of select="substring-after(. ,$doi-url-stub)"/> 
       </id_number>
-	</xsl:if>
+  </xsl:if>
   </xsl:template>
   <xsl:template match="v3:part[local-name(..)='mods']/v3:detail[@type='volume']/v3:number"> 
     <volume> 
@@ -299,6 +319,11 @@
     <edition> 
       <xsl:value-of select="."/> 
     </edition> 
+  </xsl:template>  
+  <xsl:template match="v3:part[local-name(..)='mods']/v3:detail[@type='issue']/v3:number"> 
+    <issue> 
+      <xsl:value-of select="."/> 
+    </issue> 
   </xsl:template>  
   <!-- Subjects matches to free keywords -->  
   <xsl:template match="v3:subject"> 
@@ -508,8 +533,8 @@
         </xsl:call-template> 
       </xsl:when>  
       <!--
-				Other types
-			-->  
+        Other types
+      -->  
       <xsl:otherwise> 
         <type>other</type>  
         <xsl:call-template name="journalMatch"/> 
