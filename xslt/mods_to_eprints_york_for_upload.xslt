@@ -114,6 +114,22 @@
             </xsl:for-each> 
           </creators> 
         </xsl:if>  
+        <!-- Corresponding Author -->  
+        <xsl:if test="v3:name[@type='personal' and v3:role/v3:roleTerm[@authority='pure/role'] = 'correspondingAuthor' and v3:namePart[@type = 'family']]"> 
+          <corresponding_author> 
+            <name> 
+              <family> 
+                <xsl:value-of select="v3:name[@type='personal' and v3:role/v3:roleTerm[@authority='pure/role'] = 'correspondingAuthor' and v3:namePart[@type = 'family']]/v3:namePart[@type='family']"/> 
+              </family>  
+              <given> 
+                <xsl:value-of select="v3:name[@type='personal' and v3:role/v3:roleTerm[@authority='pure/role'] = 'correspondingAuthor' and v3:namePart[@type = 'family']]/v3:namePart[@type='given']"/> 
+              </given> 
+            </name> 
+            <email> 
+              <xsl:value-of select="v3:name[@type='personal' and v3:role/v3:roleTerm[@authority='pure/role'] = 'correspondingAuthor' and v3:namePart[@type = 'family']]/v3:role/v3:roleTerm[@authority='pure/email']"/> 
+            </email> 
+          </corresponding_author> 
+        </xsl:if>  
         <!-- Group Authors -->  
         <xsl:for-each select="v3:name[@type='personal' and v3:role/v3:roleTerm[@authority='pure/role'] != 'editor' and not(v3:namePart[@type = 'family'])]"> 
           <corp_creators> 
