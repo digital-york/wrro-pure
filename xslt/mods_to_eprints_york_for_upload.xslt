@@ -8,6 +8,7 @@
      - include data from 'series' host
      - additional mapping for newer identifier representation
      - only map 'extent' to pages when it is pages
+	 - new ORCID mapping for v5.28
     2022-10-25 (v1.1.0): Various improvements - see closed issues on https://github.com/digital-york/wrro-pure/ 
     2017-05-15: Add mapping of DOI to id_number field. 
       Uses variable below which should be updated when Pure starts 
