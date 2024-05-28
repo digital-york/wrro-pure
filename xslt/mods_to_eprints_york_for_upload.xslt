@@ -237,7 +237,7 @@
       <xsl:value-of select="."/> 
     </article_number> 
   </xsl:template>  
-  <xsl:template match="v3:physicalDescription/v3:extent"> 
+  <xsl:template match="v3:physicalDescription/v3:extent[not(@unit) or @unit='pages']"> 
     <pages> 
       <xsl:value-of select="."/> 
     </pages> 
