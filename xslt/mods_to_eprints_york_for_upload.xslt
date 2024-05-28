@@ -96,6 +96,11 @@
                       <xsl:value-of select="v3:role/v3:roleTerm[@authority='pure/orcid']"/> 
                     </orcid> 
                   </xsl:when>  
+                  <xsl:when test="v3:nameIdentifier[@typeURI='http://id.loc.gov/vocabulary/identifiers/orcid']">
+                    <orcid>
+                      <xsl:value-of select="v3:nameIdentifier[@typeURI='http://id.loc.gov/vocabulary/identifiers/orcid']"/>
+                    </orcid>
+                  </xsl:when>
                   <xsl:otherwise> 
                     <id> 
                       <xsl:value-of select="v3:role/v3:roleTerm[@authority='pure/email']"/> 
@@ -147,6 +152,11 @@
                       <xsl:value-of select="v3:role/v3:roleTerm[@authority='pure/orcid']"/> 
                     </orcid> 
                   </xsl:when>  
+                  <xsl:when test="v3:nameIdentifier[@typeURI='http://id.loc.gov/vocabulary/identifiers/orcid']">
+                    <orcid>
+                      <xsl:value-of select="v3:nameIdentifier[@typeURI='http://id.loc.gov/vocabulary/identifiers/orcid']"/>
+                    </orcid>
+                  </xsl:when>
                   <xsl:otherwise> 
                     <id> 
                       <xsl:value-of select="v3:role/v3:roleTerm[@authority='pure/email']"/> 
