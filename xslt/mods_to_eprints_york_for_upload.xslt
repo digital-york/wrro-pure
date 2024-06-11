@@ -2,13 +2,15 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:v3="http://www.loc.gov/mods/v3" xmlns:xlin="http://www.w3.org/1999/xlink" xmlns:riox="http://docs.rioxx.net/schema/v1.0/rioxxterms/" version="1.0" exclude-result-prefixes="v3">  
   <!--
+    2024-06-11 (v1.2.1)
+     - corresponding author
     2024-05-28 (v1.2.0):
      - include Sustainable Development Goals
      - improve peer reviewed mapping
      - include data from 'series' host
      - additional mapping for newer identifier representation
      - only map 'extent' to pages when it is pages
-	 - new ORCID mapping for v5.28
+     - new ORCID mapping for v5.28
     2022-10-25 (v1.1.0): Various improvements - see closed issues on https://github.com/digital-york/wrro-pure/ 
     2017-05-15: Add mapping of DOI to id_number field. 
       Uses variable below which should be updated when Pure starts 
@@ -348,9 +350,9 @@
     </edition> 
   </xsl:template>  
   <xsl:template match="v3:part[local-name(..)='mods']/v3:detail[@type='issue']/v3:number"> 
-    <issue> 
+    <number> 
       <xsl:value-of select="."/> 
-    </issue> 
+    </number> 
   </xsl:template>  
   <!-- Subjects matches to free keywords -->  
   <xsl:template match="v3:subject"> 
