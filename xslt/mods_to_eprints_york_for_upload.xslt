@@ -356,7 +356,7 @@
   <!-- Subjects matches to free keywords -->  
   <xsl:template match="v3:subject"> 
     <xsl:choose> 
-      <xsl:when test="@xlin:type != ''"/>  
+      <xsl:when test="@xlin:type != '' and @xlin:type != 'simple'"/>  
       <!-- We only want non-qualified topics -->  
       <xsl:otherwise> 
         <keywords> 
