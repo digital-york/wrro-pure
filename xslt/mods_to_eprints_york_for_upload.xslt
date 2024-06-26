@@ -2,6 +2,8 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:v3="http://www.loc.gov/mods/v3" xmlns:xlin="http://www.w3.org/1999/xlink" xmlns:riox="http://docs.rioxx.net/schema/v1.0/rioxxterms/" version="1.0" exclude-result-prefixes="v3">  
   <!--
+    2024-06-26 (v1.2.2)
+     - fix for v5.28.3 upgrade issues (DOI; keywords)
     2024-06-11 (v1.2.1)
      - corresponding author
     2024-05-28 (v1.2.0):
