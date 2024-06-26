@@ -17,6 +17,7 @@
         using 'https://doi.org/' as the URL stem 
   -->
   <xsl:variable name="doi-url-stub">doi.org/</xsl:variable>
+  <xsl:variable name="doi-resolver-base">https://doi.org/</xsl:variable>
 
   <xsl:output indent="yes" method="xml"/>  
   <xsl:template match="text()"/>  
@@ -218,9 +219,9 @@
         <!-- Structured keywords 
           NOTE: This is only good as long as the keyword hierarchy in PURE matches the one in ePrints
         -->  
-        <xsl:if test="v3:classification"> 
+        <xsl:if test="v3:classification[@authority!='pure/sustainabledevelopmentgoals']"> 
           <subjects> 
-            <xsl:for-each select="v3:classification"> 
+            <xsl:for-each select="v3:classification[@authority!='pure/sustainabledevelopmentgoals']"> 
               <item> 
                 <xsl:call-template name="find-last-token"> 
                   <xsl:with-param name="uri" select="."/> 
@@ -331,13 +332,11 @@
   </xsl:template>  
   <xsl:template match="v3:identifier[@type='doi' and local-name(..)='mods']"> 
     <official_url> 
-      <xsl:value-of select="."/> 
+      <xsl:value-of select="concat($doi-resolver-base, .)"/> 
     </official_url>
-    <xsl:if test="substring-after(. ,$doi-url-stub)">
-      <id_number> 
-        <xsl:value-of select="substring-after(. ,$doi-url-stub)"/> 
-      </id_number>
-  </xsl:if>
+    <id_number> 
+      <xsl:value-of select="."/> 
+    </id_number>
   </xsl:template>
   <xsl:template match="v3:part[local-name(..)='mods']/v3:detail[@type='volume']/v3:number"> 
     <volume> 
@@ -357,7 +356,7 @@
   <!-- Subjects matches to free keywords -->  
   <xsl:template match="v3:subject"> 
     <xsl:choose> 
-      <xsl:when test="@xlin:type != ''"/>  
+      <xsl:when test="@xlin:type != '' and @xlin:type != 'simple'"/>  
       <!-- We only want non-qualified topics -->  
       <xsl:otherwise> 
         <keywords> 
