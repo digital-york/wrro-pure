@@ -17,6 +17,7 @@
         using 'https://doi.org/' as the URL stem 
   -->
   <xsl:variable name="doi-url-stub">doi.org/</xsl:variable>
+  <xsl:variable name="doi-resolver-base">https://doi.org/</xsl:variable>
 
   <xsl:output indent="yes" method="xml"/>  
   <xsl:template match="text()"/>  
@@ -331,13 +332,11 @@
   </xsl:template>  
   <xsl:template match="v3:identifier[@type='doi' and local-name(..)='mods']"> 
     <official_url> 
-      <xsl:value-of select="."/> 
+      <xsl:value-of select="concat($doi-resolver-base, .)"/> 
     </official_url>
-    <xsl:if test="substring-after(. ,$doi-url-stub)">
-      <id_number> 
-        <xsl:value-of select="substring-after(. ,$doi-url-stub)"/> 
-      </id_number>
-  </xsl:if>
+    <id_number> 
+      <xsl:value-of select="."/> 
+    </id_number>
   </xsl:template>
   <xsl:template match="v3:part[local-name(..)='mods']/v3:detail[@type='volume']/v3:number"> 
     <volume> 
