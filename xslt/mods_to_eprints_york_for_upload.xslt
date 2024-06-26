@@ -219,9 +219,9 @@
         <!-- Structured keywords 
           NOTE: This is only good as long as the keyword hierarchy in PURE matches the one in ePrints
         -->  
-        <xsl:if test="v3:classification"> 
+        <xsl:if test="v3:classification[@authority!='pure/sustainabledevelopmentgoals']"> 
           <subjects> 
-            <xsl:for-each select="v3:classification"> 
+            <xsl:for-each select="v3:classification[@authority!='pure/sustainabledevelopmentgoals']"> 
               <item> 
                 <xsl:call-template name="find-last-token"> 
                   <xsl:with-param name="uri" select="."/> 
